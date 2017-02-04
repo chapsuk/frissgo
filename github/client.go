@@ -1,7 +1,6 @@
 package github
 
 import (
-	"log"
 	"net/http"
 	"strings"
 	"time"
@@ -64,7 +63,7 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 		})
 	}
 
-	log.Printf("github limits: %+v", res)
+	// log.Printf("github limits: %+v", res)
 
 	return result, nil
 }
