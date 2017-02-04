@@ -19,7 +19,7 @@ github:
     period: 168h
 
 strategy:
-  per_page: 200 # issues count on 1 github request
+  per_page: 200 # issues count in 1 github request
   prior_authors:
     - robpike
     - bradfitz

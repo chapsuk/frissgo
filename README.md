@@ -4,6 +4,12 @@
 go get github.com/chapsuk/frissgo
 ```
 
+## Run
+
+```bash
+frissgo -cfg go.yml
+```
+
 ## Configuration
 
 See [exmaple](go.yml) for [go](https://github.com/golang/go) repo.
@@ -50,10 +56,76 @@ strategy:                           # rate strategy
           total: 3
 ```
 
-## Run
+## Output example
 
 ```bash
-frissgo -cfg go.yml
+2017/02/05 00:33:21 github limits: github.Rate{Limit:5000, Remaining:4886, Reset:github.Timestamp{2017-02-05 00:43:19 +0300 MSK}}
+
+[ MostActivity ]
+=====================
+https://github.com/golang/go/issues/18130
+https://github.com/golang/go/issues/18887
+https://github.com/golang/go/issues/18861
+https://github.com/golang/go/issues/18874
+https://github.com/golang/go/issues/18939
+https://github.com/golang/go/issues/18896
+https://github.com/golang/go/issues/18846
+https://github.com/golang/go/issues/18911
+https://github.com/golang/go/issues/18856
+=====================
+
+[ MostReaction ]
+=====================
+https://github.com/golang/go/issues/18130
+https://github.com/golang/go/issues/12914
+https://github.com/golang/go/issues/13560
+https://github.com/golang/go/issues/18616
+https://github.com/golang/go/issues/18802
+https://github.com/golang/go/issues/18939
+https://github.com/golang/go/issues/15314
+https://github.com/golang/go/issues/18653
+https://github.com/golang/go/issues/18861
+https://github.com/golang/go/issues/18548
+https://github.com/golang/go/issues/18597
+https://github.com/golang/go/issues/17082
+https://github.com/golang/go/issues/17725
+https://github.com/golang/go/issues/18342
+https://github.com/golang/go/issues/4899
+https://github.com/golang/go/issues/16791
+https://github.com/golang/go/issues/18846
+=====================
+
+[ MostFamous ]
+=====================
+https://github.com/golang/go/issues/18887
+https://github.com/golang/go/issues/13560
+https://github.com/golang/go/issues/18911
+https://github.com/golang/go/issues/18865
+https://github.com/golang/go/issues/18856
+https://github.com/golang/go/issues/18906
+https://github.com/golang/go/issues/18846
+https://github.com/golang/go/issues/5170
+https://github.com/golang/go/issues/14183
+https://github.com/golang/go/issues/13579
+=====================
+
+[ MostPositive ]
+=====================
+https://github.com/golang/go/issues/18130
+https://github.com/golang/go/issues/12914
+https://github.com/golang/go/issues/13560
+https://github.com/golang/go/issues/18616
+https://github.com/golang/go/issues/18802
+https://github.com/golang/go/issues/18653
+https://github.com/golang/go/issues/18861
+https://github.com/golang/go/issues/18939
+https://github.com/golang/go/issues/18846
+=====================
+
+[ MostNegative ]
+=====================
+https://github.com/golang/go/issues/14932
+=====================
 ```
 
 ## Image
