@@ -16,7 +16,7 @@ var (
 func main() {
 	flag.Parse()
 
-	cfg, err := config.Load(*c)
+	cfg, err := config.LoadFile(*c)
 	handleError(err)
 
 	g, err := github.New(cfg.Github)
