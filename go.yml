@@ -1,0 +1,19 @@
+github:
+  access_token:
+  owner: golang
+  repo: go
+  filters:
+    milestone: "*"
+    state: all
+    assignee:
+    creator:
+    mentioned:
+    lables:
+    sort: comments
+    direction: desc
+    period: 168h
+strategy:
+output:
+  format: text
+  target: stdout
+  file_name:

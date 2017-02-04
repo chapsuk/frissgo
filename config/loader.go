@@ -8,9 +8,9 @@ import (
 )
 
 type Config struct {
-	Github   Github
-	Output   Output
-	Strategy Strategy
+	Github   *Github
+	Output   *Output
+	Strategy *Strategy
 }
 
 func LoadFile(file string) (Config, error) {
@@ -30,5 +30,9 @@ func LoadFile(file string) (Config, error) {
 func Load(body []byte) (Config, error) {
 	cfg := Config{}
 	err := yaml.Unmarshal(body, &cfg)
+	if err != nil {
+		return cfg, err
+	}
+	err = cfg.Github.Filters.Check()
 	return cfg, err
 }

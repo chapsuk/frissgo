@@ -18,10 +18,10 @@ type Formatter interface {
 
 type Output struct {
 	formatter Formatter
-	cfg       config.Output
+	cfg       *config.Output
 }
 
-func New(cfg config.Output) (*Output, error) {
+func New(cfg *config.Output) (*Output, error) {
 	var f Formatter
 	switch cfg.Format {
 	case config.OutputFormatText:
@@ -61,5 +61,6 @@ func (o *Output) Flush(t *judge.Top) (int, error) {
 		defer f.Close()
 		return f.Write(o.formatter.Format(t))
 	}
+
 	return 0, ErrInvalidTarget
 }

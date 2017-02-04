@@ -9,7 +9,7 @@ const (
 )
 
 type Output struct {
-	Format   string `yml:"format"`
-	Target   string `yml:"target"`
-	FileName string `yml:"file_name"`
+	Format   string `yaml:"format"`
+	Target   string `yaml:"target"`
+	FileName string `yaml:"file_name"`
 }

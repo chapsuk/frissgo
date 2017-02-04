@@ -1,6 +1,0 @@
-github:
-strategy:
-output:
-  format: text
-  target: stdout
-  file_name:
