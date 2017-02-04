@@ -3,8 +3,8 @@ package judge
 import (
 	"sync"
 
-	"github.com/chapsuk/gofriss/config"
-	"github.com/chapsuk/gofriss/github"
+	"github.com/chapsuk/frissgo/config"
+	"github.com/chapsuk/frissgo/github"
 )
 
 type Judge struct {

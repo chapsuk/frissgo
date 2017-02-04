@@ -3,7 +3,7 @@ package output
 import (
 	"encoding/json"
 
-	"github.com/chapsuk/gofriss/judge"
+	"github.com/chapsuk/frissgo/judge"
 )
 
 type JSONFormatter struct{}

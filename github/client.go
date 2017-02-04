@@ -1,11 +1,12 @@
 package github
 
 import (
+	"log"
 	"net/http"
 	"strings"
 	"time"
 
-	"github.com/chapsuk/gofriss/config"
+	"github.com/chapsuk/frissgo/config"
 	hub "github.com/google/go-github/github"
 	"golang.org/x/oauth2"
 )
@@ -63,7 +64,7 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 		})
 	}
 
-	// log.Printf("github limits: %+v", res)
+	log.Printf("github limits: %+v", res)
 
 	return result, nil
 }

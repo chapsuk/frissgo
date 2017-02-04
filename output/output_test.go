@@ -3,9 +3,9 @@ package output_test
 import (
 	"testing"
 
-	"github.com/chapsuk/gofriss/config"
-	"github.com/chapsuk/gofriss/judge"
-	"github.com/chapsuk/gofriss/output"
+	"github.com/chapsuk/frissgo/config"
+	"github.com/chapsuk/frissgo/judge"
+	"github.com/chapsuk/frissgo/output"
 )
 
 func TestOutputWrite(t *testing.T) {

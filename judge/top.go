@@ -3,7 +3,7 @@ package judge
 import (
 	"sync"
 
-	"github.com/chapsuk/gofriss/github"
+	"github.com/chapsuk/frissgo/github"
 )
 
 type top struct {

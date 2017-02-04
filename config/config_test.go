@@ -3,7 +3,7 @@ package config_test
 import (
 	"testing"
 
-	"github.com/chapsuk/gofriss/config"
+	"github.com/chapsuk/frissgo/config"
 )
 
 func TestLoad(t *testing.T) {

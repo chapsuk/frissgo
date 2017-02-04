@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/chapsuk/gofriss/judge"
+	"github.com/chapsuk/frissgo/judge"
 )
 
 type TextFormatter struct {

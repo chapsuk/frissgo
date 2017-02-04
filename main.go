@@ -3,10 +3,10 @@ package main
 import (
 	"flag"
 
-	"github.com/chapsuk/gofriss/config"
-	"github.com/chapsuk/gofriss/github"
-	"github.com/chapsuk/gofriss/judge"
-	"github.com/chapsuk/gofriss/output"
+	"github.com/chapsuk/frissgo/config"
+	"github.com/chapsuk/frissgo/github"
+	"github.com/chapsuk/frissgo/judge"
+	"github.com/chapsuk/frissgo/output"
 )
 
 var (

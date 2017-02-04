@@ -4,8 +4,8 @@ import (
 	"log"
 	"testing"
 
-	"github.com/chapsuk/gofriss/config"
-	"github.com/chapsuk/gofriss/github"
+	"github.com/chapsuk/frissgo/config"
+	"github.com/chapsuk/frissgo/github"
 )
 
 func TestGetIssues(t *testing.T) {
