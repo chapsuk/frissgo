@@ -48,19 +48,29 @@ func New(cfg *config.Output) (*Output, error) {
 	}, nil
 }
 
-func (o *Output) Flush(t *judge.Top) (int, error) {
+func (o *Output) Flush(categories []*judge.Category) error {
 	if o.cfg.Target == config.OutputTargetStdout {
-		return os.Stdout.Write(o.formatter.Format(t))
+		for _, c := range categories {
+			_, err := os.Stdout.Write(o.formatter.Format(c.Top))
+			if err != nil {
+				return err
+			}
+		}
 	}
 
 	if o.cfg.Target == config.OutputTargetFile {
 		f, err := os.Open(o.cfg.FileName)
 		if err != nil {
-			return 0, err
+			return err
 		}
 		defer f.Close()
-		return f.Write(o.formatter.Format(t))
+		for _, c := range categories {
+			_, err := f.Write(o.formatter.Format(c.Top))
+			if err != nil {
+				return err
+			}
+		}
 	}
 
-	return 0, ErrInvalidTarget
+	return ErrInvalidTarget
 }

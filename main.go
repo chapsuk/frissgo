@@ -28,7 +28,7 @@ func main() {
 	j, err := judge.New(cfg.Strategy, g)
 	handleError(err)
 
-	t, err := j.GetTop()
+	t, err := j.GetCategoriesTop()
 	handleError(err)
 
 	_, err = o.Flush(t)

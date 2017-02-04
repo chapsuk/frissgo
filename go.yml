@@ -1,3 +1,8 @@
+output:
+  format: text
+  target: stdout
+  file_name:
+
 github:
   access_token:
   owner: golang
@@ -12,8 +17,80 @@ github:
     sort: comments
     direction: desc
     period: 168h
+
 strategy:
-output:
-  format: text
-  target: stdout
-  file_name:
+  prior_authors:
+    - robpike
+    - bradfitz
+    - davecheney
+    - griesemer
+    - ken
+    - ianlancetaylor
+    - adg
+    - minux
+    - dvyukov
+    - aclements
+    - mikioh
+    - randall77
+    - josharian
+    - alexbrainman
+    - agl
+    - mdempsky
+    - nigeltao
+    - crawshaw
+    - dsymonds
+    - aleksi
+    - lk4d4
+  categories:
+    - name: MostActivity
+      issues:
+      comments:
+        activity: 10
+        reaction:
+           total: 8
+    - name: MostReaction
+      issues:
+        reaction:
+          total: 10
+      comments:
+        reaction:
+          total: 10
+    - name: MostFamous
+      issues:
+        author: 10
+      comments:
+        author: 10
+    - name: MostPositive
+      issues:
+        reaction:
+          plus: 10
+          heart: 10
+          laugh: 10
+          hooray: 10
+          minus: -10
+          confused: -10
+      comments:
+        reaction:
+          plus: 10
+          heart: 10
+          laugh: 10
+          hooray: 10
+          minus: -10
+          confused: -10
+    - name: MostNegative
+      issues:
+        reaction:
+          plus: -10
+          heart: -10
+          laugh: -10
+          hooray: -10
+          minus: 10
+          confused: 10
+      comments:
+        reaction:
+          plus: -10
+          heart: -10
+          laugh: -10
+          hooray: -10
+          minus: 10
+          confused: 10

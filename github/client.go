@@ -44,7 +44,7 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 		return nil, err
 	}
 
-	result := make([]*Issue, len(iss))
+	result := make([]*Issue, 0, len(iss))
 	for _, i := range iss {
 
 		var cmmnts []*hub.IssueComment

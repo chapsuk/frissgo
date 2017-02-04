@@ -5,16 +5,23 @@ import (
 	"github.com/chapsuk/gofriss/github"
 )
 
+type Category struct {
+	Name string
+	Top  *Top
+}
+
 type Top struct {
 }
 
 type Judge struct {
 }
 
-func New(cfg config.Strategy, git *github.Client) (*Judge, error) {
+func New(cfg *config.Strategy, git *github.Client) (*Judge, error) {
 	return nil, nil
 }
 
-func (j *Judge) GetTop() (*Top, error) {
-	return &Top{}, nil
+func (j *Judge) GetCategoriesTop() ([]*Category, error) {
+	return []*Category{
+		&Category{},
+	}, nil
 }

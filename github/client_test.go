@@ -19,7 +19,7 @@ func TestGetIssues(t *testing.T) {
 		t.Fatalf("create client error: %s", err)
 	}
 
-	iss, err := gh.GetIssues(3, 1)
+	iss, err := gh.GetIssues(1, 1)
 	if err != nil {
 		t.Fatalf("get issues error: %s", err)
 	}
