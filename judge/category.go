@@ -11,7 +11,7 @@ type byWeight []*topItem
 
 func (w byWeight) Len() int           { return len(w) }
 func (w byWeight) Swap(i, j int)      { w[i], w[j] = w[j], w[i] }
-func (w byWeight) Less(i, j int) bool { return w[i].weight < w[j].weight }
+func (w byWeight) Less(i, j int) bool { return w[i].weight > w[j].weight }
 
 type estimatorFunc func(iss *github.Issue) *topItem
 

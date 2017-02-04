@@ -31,6 +31,8 @@ func (j *Judge) GetCategoriesTop() ([]*Category, error) {
 	for _, iss := range issues {
 		go func(iss *github.Issue) {
 			for _, cat := range categories {
+				// t := cat.estimator(iss)
+				// log.Printf("Try add to category %s issue: %s weight: %d", cat.Name, *iss.Iss.HTMLURL, t.weight)
 				cat.top.add(cat.estimator(iss))
 			}
 			j.wg.Done()

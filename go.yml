@@ -8,7 +8,7 @@ github:
   owner: golang
   repo: go
   filters:
-    milestone: "*"
+    milestone:
     state: all
     assignee:
     creator:
