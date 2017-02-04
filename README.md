@@ -128,6 +128,4 @@ https://github.com/golang/go/issues/14932
 =====================
 ```
 
-## Image
-
 ![](https://media.giphy.com/media/11Tsyjflf2xq2A/giphy.gif)
