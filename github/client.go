@@ -39,7 +39,6 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 	opt.Page = page
 
 	iss, res, err := c.github.Issues.ListByRepo(c.cfg.Owner, c.cfg.Repository, opt)
-	log.Printf("github limits response: %+v", res)
 	if err != nil {
 		return nil, err
 	}
@@ -53,12 +52,10 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 			opts.Since = opt.Since
 			opts.PerPage = *i.Comments
 
-			cmmnts, res, err := c.github.Issues.ListComments(c.cfg.Owner, c.cfg.Repository, *i.Number, opts)
+			cmmnts, res, err = c.github.Issues.ListComments(c.cfg.Owner, c.cfg.Repository, *i.Number, opts)
 			if err != nil {
 				return nil, err
 			}
-			log.Printf("github limits response: %+v", res)
-			log.Printf("gotten %d comments for issue %d", len(cmmnts), i.Number)
 		}
 
 		result = append(result, &Issue{
@@ -66,6 +63,9 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 			Comments: cmmnts,
 		})
 	}
+
+	log.Printf("github limits: %+v", res)
+
 	return result, nil
 }
 

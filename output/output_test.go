@@ -10,7 +10,7 @@ import (
 
 func TestOutputWrite(t *testing.T) {
 
-	cfg := config.Output{
+	cfg := &config.Output{
 		Format: config.OutputFormatText,
 		Target: config.OutputTargetStdout,
 	}
@@ -20,9 +20,9 @@ func TestOutputWrite(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	top := &judge.Top{}
+	top := []*judge.Category{}
 
-	_, err = o.Flush(top)
+	err = o.Write(top)
 	if err != nil {
 		t.Fatal(err)
 	}

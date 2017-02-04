@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	c = flag.String("cfg", "config.yml", "config file name")
+	c = flag.String("cfg", "go.yml", "config file name")
 )
 
 func main() {
@@ -25,13 +25,10 @@ func main() {
 	o, err := output.New(cfg.Output)
 	handleError(err)
 
-	j, err := judge.New(cfg.Strategy, g)
+	t, err := judge.New(cfg.Strategy, g).GetCategoriesTop()
 	handleError(err)
 
-	t, err := j.GetCategoriesTop()
-	handleError(err)
-
-	_, err = o.Flush(t)
+	err = o.Write(t)
 	handleError(err)
 }
 

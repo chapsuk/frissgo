@@ -4,7 +4,7 @@ output:
   file_name:
 
 github:
-  access_token:
+  access_token: 6cb612b84e766e0474d9fb4b8ccbc90642b63779
   owner: golang
   repo: go
   filters:
@@ -16,9 +16,10 @@ github:
     lables:
     sort: comments
     direction: desc
-    period: 168h
+    period: 12h
 
 strategy:
+  per_page: 200 # issues count on 1 github request
   prior_authors:
     - robpike
     - bradfitz
@@ -43,12 +44,14 @@ strategy:
     - lk4d4
   categories:
     - name: MostActivity
+      size: 10
       issues:
       comments:
         activity: 10
         reaction:
            total: 8
     - name: MostReaction
+      size: 10
       issues:
         reaction:
           total: 10
@@ -56,11 +59,13 @@ strategy:
         reaction:
           total: 10
     - name: MostFamous
+      size: 10
       issues:
         author: 10
       comments:
         author: 10
     - name: MostPositive
+      size: 10
       issues:
         reaction:
           plus: 10
@@ -78,6 +83,7 @@ strategy:
           minus: -10
           confused: -10
     - name: MostNegative
+      size: 10
       issues:
         reaction:
           plus: -10

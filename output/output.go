@@ -13,7 +13,7 @@ var (
 )
 
 type Formatter interface {
-	Format(t *judge.Top) []byte
+	Format(t []*judge.Category) []byte
 }
 
 type Output struct {
@@ -48,14 +48,10 @@ func New(cfg *config.Output) (*Output, error) {
 	}, nil
 }
 
-func (o *Output) Flush(categories []*judge.Category) error {
+func (o *Output) Write(categories []*judge.Category) error {
 	if o.cfg.Target == config.OutputTargetStdout {
-		for _, c := range categories {
-			_, err := os.Stdout.Write(o.formatter.Format(c.Top))
-			if err != nil {
-				return err
-			}
-		}
+		_, err := os.Stdout.Write(o.formatter.Format(categories))
+		return err
 	}
 
 	if o.cfg.Target == config.OutputTargetFile {
@@ -64,12 +60,8 @@ func (o *Output) Flush(categories []*judge.Category) error {
 			return err
 		}
 		defer f.Close()
-		for _, c := range categories {
-			_, err := f.Write(o.formatter.Format(c.Top))
-			if err != nil {
-				return err
-			}
-		}
+		_, err = f.Write(o.formatter.Format(categories))
+		return err
 	}
 
 	return ErrInvalidTarget
