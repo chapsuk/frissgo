@@ -4,7 +4,7 @@ output:
   file_name:
 
 github:
-  access_token: 6cb612b84e766e0474d9fb4b8ccbc90642b63779
+  access_token:
   owner: golang
   repo: go
   filters:
