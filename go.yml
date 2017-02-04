@@ -16,7 +16,7 @@ github:
     lables:
     sort: comments
     direction: desc
-    period: 12h
+    period: 168h
 
 strategy:
   per_page: 200 # issues count on 1 github request
