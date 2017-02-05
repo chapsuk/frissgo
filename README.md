@@ -1,6 +1,7 @@
 # Fresh issues from github
 
 [![Build Status](https://travis-ci.org/chapsuk/frissgo.svg?branch=master)](https://travis-ci.org/chapsuk/frissgo/)
+[![Go Report Card](https://goreportcard.com/badge/github.com/chapsuk/frissgo)](https://goreportcard.com/report/github.com/chapsuk/frissgo)
 
 ```bash
 go get github.com/chapsuk/frissgo
