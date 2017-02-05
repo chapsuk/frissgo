@@ -33,6 +33,8 @@ func Load(body []byte) (Config, error) {
 	if err != nil {
 		return cfg, err
 	}
-	err = cfg.Github.Filters.Check()
+	if cfg.Github != nil && cfg.Github.Filters != nil {
+		err = cfg.Github.Filters.Check()
+	}
 	return cfg, err
 }
