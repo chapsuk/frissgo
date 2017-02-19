@@ -21,6 +21,7 @@ github:
 strategy:
   per_page: 200 # issues count in 1 github request
   prior_authors:
+    - rsc
     - robpike
     - bradfitz
     - davecheney
