@@ -8,7 +8,7 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/google/go-github/github",
-			"Rev": "27c7c32b6d369610435bd2ad7b4d8554f235eb01"
+			"Rev": "04b64a7f8ccd7701ed660231f3805bd585fb486c"
 		},
 		{
 			"ImportPath": "github.com/google/go-querystring/query",

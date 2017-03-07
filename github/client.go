@@ -1,6 +1,7 @@
 package github
 
 import (
+	"context"
 	"log"
 	"net/http"
 	"strings"
@@ -31,6 +32,7 @@ func New(cfg *config.Github) (*Client, error) {
 }
 
 func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
+	ctx := context.TODO()
 	opt, err := c.buildOpt()
 	if err != nil {
 		return nil, err
@@ -38,7 +40,7 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 	opt.PerPage = count
 	opt.Page = page
 
-	iss, res, err := c.github.Issues.ListByRepo(c.cfg.Owner, c.cfg.Repository, opt)
+	iss, res, err := c.github.Issues.ListByRepo(ctx, c.cfg.Owner, c.cfg.Repository, opt)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +54,7 @@ func (c *Client) GetIssues(count, page int) ([]*Issue, error) {
 			opts.Since = opt.Since
 			opts.PerPage = *i.Comments
 
-			cmmnts, res, err = c.github.Issues.ListComments(c.cfg.Owner, c.cfg.Repository, *i.Number, opts)
+			cmmnts, res, err = c.github.Issues.ListComments(ctx, c.cfg.Owner, c.cfg.Repository, *i.Number, opts)
 			if err != nil {
 				return nil, err
 			}
