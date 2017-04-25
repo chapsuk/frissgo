@@ -4,7 +4,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/chapsuk/frissgo)](https://goreportcard.com/report/github.com/chapsuk/frissgo)
 
 ```bash
-go get github.com/chapsuk/frissgo
+go get -u github.com/chapsuk/frissgo
 ```
 
 ## Run
@@ -15,7 +15,7 @@ frissgo -cfg go.yml
 
 ## Configuration
 
-See [exmaple](go.yml) for [go](https://github.com/golang/go) repo.
+See [example](go.yml) for [go](https://github.com/golang/go) repo.
 
 ```yml
 output:                             # output config
