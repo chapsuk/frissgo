@@ -22,7 +22,7 @@ func TestOutputWrite(t *testing.T) {
 
 	top := []*judge.Category{}
 
-	err = o.Write(top)
+	err = o.WriteCategories(top)
 	if err != nil {
 		t.Fatal(err)
 	}

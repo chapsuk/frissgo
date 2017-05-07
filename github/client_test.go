@@ -2,6 +2,7 @@ package github_test
 
 import (
 	"log"
+	"os"
 	"testing"
 
 	"github.com/chapsuk/frissgo/config"
@@ -14,6 +15,8 @@ func TestGetIssues(t *testing.T) {
 		t.Fatalf("load config error: %s", err)
 	}
 	log.Printf("config: %+v", cfg.Github)
+	cfg.Github.AccessToken = os.Getenv("GITHUB_ACCESS_TOKEN")
+
 	gh, err := github.New(cfg.Github)
 	if err != nil {
 		t.Fatalf("create client error: %s", err)
