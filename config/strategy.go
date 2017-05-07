@@ -8,6 +8,7 @@ type Strategy struct {
 
 type Category struct {
 	Name     string   `yaml:"name"`
+	Coeff    int      `yaml:"coeff"`
 	Size     int      `yaml:"size"`
 	Issues   Issues   `yaml:"issues"`
 	Comments Comments `yaml:"comments"`

@@ -1,15 +1,18 @@
 package judge
 
 import (
+	"sort"
 	"sync"
 
 	"github.com/chapsuk/frissgo/github"
 )
 
 type top struct {
-	minWeight int
 	mu        sync.Mutex
-	items     []*topItem
+	items     topItems
+	size      int
+	minWeight int
+	sorted    bool
 }
 
 type topItem struct {
@@ -20,8 +23,15 @@ type topItem struct {
 func newTopChart(size int) *top {
 	return &top{
 		items: make([]*topItem, 0, size),
+		size:  size,
 	}
 }
+
+type topItems []*topItem
+
+func (t topItems) Len() int           { return len(t) }
+func (t topItems) Swap(i, j int)      { t[i], t[j] = t[j], t[i] }
+func (t topItems) Less(i, j int) bool { return t[i].weight > t[j].weight }
 
 func (t *top) add(i *topItem) bool {
 	if i.weight <= 0 {
@@ -43,18 +53,13 @@ func (t *top) add(i *topItem) bool {
 		return false
 	}
 
-	n := make([]*topItem, 0, cap(t.items))
-	min := i.weight
-	for _, item := range t.items {
-		if item.weight > i.weight {
-			n = append(n, item)
-			if item.weight < min {
-				min = item.weight
-			}
-		}
+	if !t.sorted {
+		sort.Sort(t.items)
+		t.sorted = true
 	}
-	t.items = append(n, i)
-	t.minWeight = min
+
+	t.items[t.size-1] = i
+	t.minWeight = i.weight
 
 	return true
 }

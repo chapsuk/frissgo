@@ -48,7 +48,7 @@ func New(cfg *config.Output) (*Output, error) {
 	}, nil
 }
 
-func (o *Output) Write(categories []*judge.Category) error {
+func (o *Output) WriteCategories(categories []*judge.Category) error {
 	if o.cfg.Target == config.OutputTargetStdout {
 		_, err := os.Stdout.Write(o.formatter.Format(categories))
 		return err

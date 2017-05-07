@@ -17,6 +17,7 @@ type estimatorFunc func(iss *github.Issue) *topItem
 
 type Category struct {
 	Name      string
+	Coeff     int
 	estimator estimatorFunc
 	top       *top
 }
@@ -24,6 +25,7 @@ type Category struct {
 func newCategory(strategy *config.Strategy, cfg config.Category) *Category {
 	return &Category{
 		Name:      cfg.Name,
+		Coeff:     cfg.Coeff,
 		top:       newTopChart(cfg.Size),
 		estimator: createEstimatorFunc(strategy, cfg),
 	}

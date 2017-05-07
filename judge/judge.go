@@ -20,6 +20,49 @@ func New(cfg *config.Strategy, gh *github.Client) *Judge {
 	}
 }
 
+// GetBestOfTheBest recalculate weight for top items from categories tops
+// seeing categories coefficients (config.Strategy.Category.Coeff)
+func (j *Judge) GetBestOfTheBest() (*Category, error) {
+	cats, err := j.GetCategoriesTop()
+	if err != nil {
+		return nil, err
+	}
+
+	cbotb := &Category{
+		Name: "BestOfTheBest",
+		top:  newTopChart(10),
+	}
+
+	f := func(iss *github.Issue, cats []*Category) *topItem {
+		item := &topItem{issue: iss}
+		for _, cat := range cats {
+			i := cat.estimator(iss)
+			item.weight += cat.Coeff * i.weight
+		}
+		// log.Printf("isss: %s weight: %d", item.issue.Iss.GetURL(), item.weight)
+		return item
+	}
+
+	t := make(map[int]struct{}, 1024)
+	for _, cat := range cats {
+		for _, i := range cat.top.items {
+			if _, ok := t[i.issue.Iss.GetID()]; ok {
+				continue
+			}
+			t[i.issue.Iss.GetID()] = struct{}{}
+
+			j.wg.Add(1)
+			go func(iss *github.Issue) {
+				cbotb.top.add(f(iss, cats))
+				j.wg.Done()
+			}(i.issue)
+		}
+	}
+	j.wg.Wait()
+
+	return cbotb, nil
+}
+
 func (j *Judge) GetCategoriesTop() ([]*Category, error) {
 	issues, err := j.loadIssues()
 	if err != nil {

@@ -45,6 +45,7 @@ strategy:
     - lk4d4
   categories:
     - name: MostActivity
+      coeff: 10
       size: 10
       issues:
       comments:
@@ -52,6 +53,7 @@ strategy:
         reaction:
            total: 8
     - name: MostReaction
+      coeff: 5
       size: 10
       issues:
         reaction:
@@ -60,12 +62,14 @@ strategy:
         reaction:
           total: 10
     - name: MostFamous
+      coeff: 10
       size: 10
       issues:
         author: 10
       comments:
         author: 10
     - name: MostPositive
+      coeff: 8
       size: 10
       issues:
         reaction:
@@ -84,6 +88,7 @@ strategy:
           minus: -10
           confused: -10
     - name: MostNegative
+      coeff: 5
       size: 10
       issues:
         reaction:
