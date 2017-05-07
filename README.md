@@ -10,8 +10,13 @@ go get -u github.com/chapsuk/frissgo
 ## Run
 
 ```bash
-frissgo -cfg go.yml
+frissgo -cfg <config_file> -mode <mode>
 ```
+
+where `<mode>` define output type:
+
+* `top` - calculate `BestOfTheBest` category top chart by formula: `TotalIssueWeight = SUM(CategoryCoeff * IssueCategoryWeight)`
+* `category` - calculate categories top charts
 
 ## Configuration
 
